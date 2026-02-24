@@ -1,0 +1,8 @@
+{
+  "name": "AuraBeauty AI: Full-Chain Brand Solution",
+  "description": "An end-to-end AI agent for beauty brands, covering market analysis, brand storytelling, packaging design, and marketing video generation.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
