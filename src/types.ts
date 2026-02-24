@@ -43,7 +43,7 @@ export interface BrandProject {
 
 declare global {
   interface Window {
-    aistudio: {
+    aistudio?: {
       hasSelectedApiKey: () => Promise<boolean>;
       openSelectKey: () => Promise<void>;
     };
