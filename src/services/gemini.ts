@@ -1,8 +1,8 @@
 import { GoogleGenAI, Type, Modality, ThinkingLevel } from "@google/genai";
 
 // Initialize the AI client
-// Note: process.env.GEMINI_API_KEY is injected by the platform
-const getAI = () => new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+// Note: VITE_GEMINI_API_KEY is injected by Vite at build time
+const getAI = () => new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
 export const generateBrandStrategy = async (prompt: string, systemInstruction: string = "You are a world-class beauty brand consultant.") => {
   const ai = getAI();
@@ -150,7 +150,7 @@ export const generateMarketingVideo = async (prompt: string, onProgress: (msg: s
   const response = await fetch(downloadLink, {
     method: 'GET',
     headers: {
-      'x-goog-api-key': process.env.GEMINI_API_KEY!,
+      'x-goog-api-key': import.meta.env.VITE_GEMINI_API_KEY as string,
     },
   });
   
