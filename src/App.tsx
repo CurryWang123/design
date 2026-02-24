@@ -89,6 +89,9 @@ export default function App() {
       if (window.aistudio) {
         const selected = await window.aistudio.hasSelectedApiKey();
         setHasKey(selected);
+      } else {
+        // Hardcoded API key is available in production
+        setHasKey(true);
       }
     };
     checkKey();

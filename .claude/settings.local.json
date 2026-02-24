@@ -9,7 +9,8 @@
       "Bash(git push:*)",
       "Bash(git remote set-url:*)",
       "Bash(timeout:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(npm run dev)"
     ]
   }
 }
