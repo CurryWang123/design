@@ -1,52 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono&display=swap');
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", serif;
-  --font-mono: "JetBrains Mono", monospace;
-  
-  --color-beauty-pink: #FF0080;
-  --color-beauty-purple: #7928CA;
-  --color-beauty-gold: #D4AF37;
-  --color-beauty-cream: #FFF5F7;
-  --color-beauty-ink: #1A1A1A;
+@layer base {
+  body {
+    @apply bg-beauty-cream text-beauty-ink font-sans antialiased;
+    background-image: radial-gradient(circle at top right, rgba(255, 0, 128, 0.05), transparent),
+                      radial-gradient(circle at bottom left, rgba(121, 40, 202, 0.05), transparent);
+  }
 }
 
-body {
-  @apply bg-beauty-cream text-beauty-ink font-sans antialiased;
-  background-image: radial-gradient(circle at top right, rgba(255, 0, 128, 0.05), transparent),
-                    radial-gradient(circle at bottom left, rgba(121, 40, 202, 0.05), transparent);
-}
+@layer components {
+  .serif {
+    @apply font-serif;
+  }
 
-.serif {
-  @apply font-serif;
-}
+  .glass {
+    @apply bg-white/40 backdrop-blur-xl border border-white/40 shadow-xl;
+  }
 
-.glass {
-  @apply bg-white/40 backdrop-blur-xl border border-white/40 shadow-xl;
-}
+  .beauty-gradient {
+    background: linear-gradient(135deg, #FF0080, #7928CA);
+  }
 
-.beauty-gradient {
-  background: linear-gradient(135deg, var(--color-beauty-pink), var(--color-beauty-purple));
-}
+  .beauty-text-gradient {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(135deg, #FF0080, #7928CA);
+  }
 
-.beauty-text-gradient {
-  @apply text-transparent bg-clip-text;
-  background-image: linear-gradient(135deg, var(--color-beauty-pink), var(--color-beauty-purple));
-}
+  .markdown-body {
+    @apply prose prose-slate max-w-none;
+    @apply text-beauty-ink/80 leading-relaxed;
+  }
 
-.markdown-body {
-  @apply prose prose-slate max-w-none;
-  @apply text-beauty-ink/80 leading-relaxed;
-}
+  .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+    @apply font-serif text-beauty-ink mt-6 mb-4;
+  }
 
-.markdown-body h1, .markdown-body h2, .markdown-body h3 {
-  @apply font-serif text-beauty-ink mt-6 mb-4;
+  .markdown-body p {
+    @apply mb-4;
+  }
 }
-
-.markdown-body p {
-  @apply mb-4;
-}
-
